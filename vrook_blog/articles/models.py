@@ -1,5 +1,5 @@
 from django.db import models
-
+from ckeditor.fields import RichTextField
 # Create your models here.
 
 # run below commands after writing model code
@@ -9,7 +9,8 @@ from django.db import models
 class Articles(models.Model):
     title=models.CharField(max_length=250)
     slug=models.SlugField()
-    body=models.TextField()
+    # body=models.TextField()
+    body=RichTextField(blank=True,null=True)
     date=models.DateTimeField(auto_now_add=True)
     thumbnail=models.ImageField(default='default.png',blank=True)
 
