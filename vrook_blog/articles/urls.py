@@ -1,9 +1,10 @@
 from django.urls import path
 from . import views
 
+app_name='articles'
 urlpatterns = [
-    path('',views.articles),
-    path('<slug:slug>/', views.article_detail)
+    path('',views.articles,name="list"),
+    path('<slug:slug>/', views.article_detail,name="details"),
 ]
 # This has been significantly changed in Django 3, this could be done like this:
 # path('<slug:slug>/', views.article_detail),
