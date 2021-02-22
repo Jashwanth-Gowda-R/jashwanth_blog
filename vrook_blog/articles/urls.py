@@ -4,6 +4,7 @@ from . import views
 app_name='articles'
 urlpatterns = [
     path('',views.articles,name="list"),
+    path('create/', views.article_create, name="create"),
     path('<slug:slug>/', views.article_detail,name="details"),
 ]
 # This has been significantly changed in Django 3, this could be done like this:
