@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
 
 
+# from django.contrib.
+
 # Create your views here.
 def articles(request):
     articles = Articles.objects.all().order_by('date')
@@ -15,6 +17,7 @@ def article_detail(request, slug):
     article = Articles.objects.get(slug=slug)
     return render(request, 'articles/article_detail.html', {'article': article})
 
+
 @staff_member_required()
 def article_create(request):
-    return render(request,'articles/article_create.html')
+    return render(request, 'articles/article_create.html')
