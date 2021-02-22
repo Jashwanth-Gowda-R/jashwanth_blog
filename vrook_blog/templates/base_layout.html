@@ -6,9 +6,21 @@
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     </head>
-<body>
-    <h1><a href="{% url 'articles:list' %}"><img src="{% static 'vrook_logo.png' %}"></a> </h1>
-    {% block content %}
-    {% endblock%}
-</body>
+    <body>
+        <header class="wrapper">
+            <h1><a href="{% url 'articles:list' %}"><img src="{% static 'vrook_logo.png' %}"></a></h1>
+            <nav>
+                <ul>
+                    <li>
+                        <form class="logout link" action="{% url 'accounts:logout' %}" method="post">
+                            {% csrf_token %}
+                        <input type="submit" value="Log Out">
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% block content %}
+        {% endblock%}
+    </body>
 </html>
