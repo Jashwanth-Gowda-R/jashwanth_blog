@@ -5,6 +5,8 @@
         <img src="{{article.thumbnail.url}}">
         <h2>{{ article.title }}</h2>
         <p>{{ article.body|safe }}</p>
+        <p>This Article is posted by-<strong>{{ article.author }}</strong></p>
         <p>{{ article.date }}</p>
+
     </div>
 {% endblock%}
