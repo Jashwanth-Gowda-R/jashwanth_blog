@@ -1,10 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Articles
 from django.http import HttpResponse
 from django.contrib.admin.views.decorators import staff_member_required
+from . import forms
 
-
-# from django.contrib.
 
 # Create your views here.
 def articles(request):
@@ -20,4 +19,10 @@ def article_detail(request, slug):
 
 @staff_member_required()
 def article_create(request):
-    return render(request, 'articles/article_create.html')
+    if request.method == 'POST':
+        form = forms.CreateArticles(request.POST, request.FILES)
+        if form.is_valid():
+            return redirect('articles:list')
+    else:
+        form = forms.CreateArticles()
+    return render(request, 'articles/article_create.html', {'form': form})
