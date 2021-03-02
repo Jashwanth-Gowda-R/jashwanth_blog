@@ -1,15 +1,19 @@
 {% extends 'base_layout.html' %}
 
 {% block content %}
-    <h1>Articles list</h1>
+    <h1>Vrook Blog Posts</h1>
     <div class="articles">
         {% for article in articles %}
-        <div class="article">
-            <h2><a href="{% url 'articles:details' slug=article.slug %}">{{ article.title }}</a></h2>
-            <p>{{ article.snippet|safe }}</p>
-            <p>This Article is posted by-<strong>{{ article.author }}</strong></p>
-            <p>{{ article.date }}</p>
-        </div>
+            <article class="media content-section">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="#">{{ article.author }}</a>
+                  <small class="text-muted">{{ article.date }}</small>
+                </div>
+                <h2><a class="article-title" href="{% url 'articles:details' slug=article.slug %}">{{ article.title  }}</a></h2>
+                <p class="article-content">{{ article.snippet|safe }}</p>
+              </div>
+            </article>
         {% endfor %}
     </div>
 {% endblock%}

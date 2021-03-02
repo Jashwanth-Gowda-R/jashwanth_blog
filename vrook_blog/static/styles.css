@@ -1,26 +1,274 @@
-body{
-    background-color: #7FFFD4;
-    /* background-image: url(/static/stars.png);*/
-    background-repeat-y: no-repeat;
-    color: 	000000;
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 5rem;
 }
 
-body *{
-    font-family: Ubuntu;
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
 }
 
-h1, h2, h3, h4, h5{
-    font-weight: normal;
-    margin: 0;
+ul {
+  margin: 0;
 }
 
-a, a:hover, a:visited{
-    color: blue;
-    text-decoration: none;
+.bg-steel {
+  background-color: #5f788a;
 }
 
-img {
-    width: 250px;
-    height: 150px;
-    padding-left:40px;
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+.article-title {
+  color: #444444;
+}
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none;
+}
+
+.article-content {
+  white-space: pre-line;
+}
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px;
+}
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3
+}
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}
+
+.account-heading {
+  font-size: 2.5rem;
+}
+
+
+@media (max-width: 991.98px){
+	header img{
+		width: 150px;
+	}
+	#body{
+        padding-top: 20%;
+        width:100%;
+        overflow: hidden;
+        padding-bottom:20%;
+    }
+}
+
+@media (min-width: 992px){
+    header img {
+        width: 130px;
+    }
+    #body{
+        padding-top: 10%;
+        width:100%;
+        overflow: hidden;
+        padding-bottom:10%;
+    }
+}
+
+#footer-bg{
+	background-color: #8f9296;
+	height:auto;
+	margin-bottom: 0px !important;
+	width:100%;
+	position: absolute;
+	overflow: hidden;
+}
+
+@media screen and (max-width: 320px) {
+	footer img{
+		width: 40%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 50px;
+	}
+	#about{
+		padding-top: 3%;
+	}
+	#navlinks{
+		font-size: 12px;
+	}
+ }
+
+@media screen and (max-width: 540px) and (min-width: 321px) {
+	footer img{
+		width: 40%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		padding-top: 50px;
+	}
+	#about{
+		padding-top: 3%;
+	}
+	#icons{
+		padding: 3%;
+	}
+	#navlinks{
+		font-size: 13px;
+	}
+ }
+
+@media screen and (max-width: 991.98px) and (min-width: 541px){
+	footer img{
+		width: 70%;
+		display: block;
+		padding-top: 50px;
+	}
+	#about-content{
+		padding-left: 5%;
+		padding-bottom: -5%;
+		padding-top: 2%;
+		padding-right: 5%;
+	}
+	#about{
+		padding-top: 3%;
+	}
+	#contact{
+		padding-top: 3%;
+	}
+	#icons{
+		padding: 0%;
+		margin: 0%;
+	}
+	#links{
+		padding-top: 3%;
+	}
+}
+
+@media (min-width: 992px) {
+	footer img{
+		width: 70%;
+		display: block;
+		padding-top: 20%;
+		padding-left: 5%;
+	}
+	#contact{
+		padding-left: 5%;
+		padding-top:3%;
+	}
+	#about-content{
+		padding-left: 15%;
+		padding-bottom: 5%;
+		padding-top: 5%;
+		padding-right: 5%;
+	}
+	#about{
+		padding-top: 3%;
+	}
+	#connect-us{
+		margin: 5%;
+	}
+}
+
+
+@media (max-width: 584.98px){
+	.map-contact{
+		margin: 2%;
+	}
+	.address-contact{
+		width: 100%;
+		margin: 2%;
+	}
+	.number-contact{
+		width: 100%;
+		margin: 2%;
+	}
+	.mail-contact{
+		width: 100%;
+		margin: 2%;
+	}
+}
+
+@media screen and (max-width: 991.98px) and (min-width: 585px){
+	.map-contact{
+		width: 80%;
+		margin: 2%;
+		padding-left: 60px;
+	}
+	.address-contact{
+		margin: 2%;
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	.number-contact{
+		width: 30%;
+		margin: 2%;
+		float: left;
+		text-align: center;
+	}
+	.mail-contact{
+		margin: 2%;
+		float: right;
+		width: 25%;
+		text-align: center;
+	}
+}
+
+@media (min-width: 992px) {
+	.map-contact{
+		margin: 2%;
+	}
+	.address-contact{
+		margin: 2%;
+		float: left;
+		width: 30%;
+		text-align: center;
+	}
+	.number-contact{
+		width: 30%;
+		margin: 2%;
+		float: left;
+		text-align: center;
+	}
+	.mail-contact{
+		margin: 2%;
+		float: right;
+		width: 25%;
+		text-align: center;
+	}
 }

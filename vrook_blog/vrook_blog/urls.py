@@ -33,7 +33,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),
-    path('about/', views.about),
+    path('about/', views.about,name='about'),
+    path('contact/', views.contact,name='contact'),
+    path('tos/', views.tos,name='tos'),
+    path('privacy/', views.privacy,name='privacy'),
+    path('team/', views.team,name='team'),
     path('',  article_views.articles, name="home"),
 ]
 

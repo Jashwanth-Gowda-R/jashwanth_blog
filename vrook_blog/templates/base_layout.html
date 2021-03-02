@@ -7,16 +7,31 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <title>Vrook Blog</title>
         {% load static %}
         <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
     </head>
     <body>
-        <header class="wrapper">
-            <h1><a href="{% url 'home' %}"><img src="{% static 'vrook_logo.png' %}"></a></h1>
-            <nav>
-                <ul>
+        <header class="site-header">
+          <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+              <a class="navbar-brand mr-4" href="{% url 'home' %}"><img src="{% static 'logo.png' %}"></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                    <a class="nav-item nav-link" href="{% url 'team' %}">Vrook Team</a>
+                  <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+                  <a class="nav-item nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link" href="#">Login</a>
+                  <a class="nav-item nav-link" href="#">Register</a>
+                    <ul>
                     {% if user.is_authenticated %}
                         <li>
                             <form class="logout link" action="{% url 'accounts:logout' %}" method="post">
@@ -25,17 +40,84 @@
                             </form>
                         </li>
                         <li><a href="{% url 'articles:create' %}" class="highlight">Add Article</a> </li>
-                    {% else %}
-                        <li><a href="{% url 'accounts:login' %}">Login</a> </li>
-                        <li><a href="{% url 'accounts:signup' %}">SignUp</a> </li>
-                    {% endif %}
-                </ul>
-            </nav>
+                        {% else %}
+                            <li><a href="{% url 'accounts:login' %}">Login</a> </li>
+                            <li><a href="{% url 'accounts:signup' %}">SignUp</a> </li>
+                        {% endif %}
+                     </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
         </header>
-        <div class="container">
-            {% block content %}
-            {% endblock%}
-        </div>
+
+        <main role="main" class="container" id="body">
+          <div class="row">
+            <div class="col-md-8">
+              {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+              <div class="content-section">
+                <h3>Our Sidebar</h3>
+                <p class='text-muted'>
+                    You can put any information here you'd like.
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-light">Latest Posts</li>
+                    <li class="list-group-item list-group-item-light">Announcements</li>
+                    <li class="list-group-item list-group-item-light">Calendars</li>
+                    <li class="list-group-item list-group-item-light">etc</li>
+                  </ul>
+                </p>
+              </div>
+            </div>
+          </div>
+        </main>
+        <footer class="p-2 mb-0  " id="footer-bg">
+            <div class=".container">
+              <div class="row">
+                <div class="col-sm-6 col-md-3" >
+                    <a  href="{% url 'home' %}"><img src="{% static 'vrook_logo.png' %}"></a>
+                </div>
+
+                <div class="col-sm-6 col-md-4 text-center text-md-left" >
+                  <h2><span class="d-flex justify-content-center  text-dark" id="about">About the company</span></h2>
+                  <p class="text-white " id="about-content">Vrook believes in inspiring students to learn and acquire skill sets which can empower them for a better future.</p>
+                </div>
+
+                <div class="col-sm-12 col-md-5 ">
+                  <h2><span class="d-flex justify-content-center  text-dark" id="connect-us">Connect Us</span></h2>
+                  <div class="d-flex justify-content-center" id="icons">
+                    <p>
+                        <a  href=https://www.facebook.com/vrook.co target="_blank"> <i class="fa fa-facebook fa-2x mx-3"></i></a>
+                        <a  href=https://twitter.com/vrook_co target="_blank"> <i class="fa fa-twitter fa-2x mx-3"></i></a>
+                        <a  href=https://www.instagram.com/vrook.co/ target="_blank"> <i class="fa fa-instagram fa-2x mx-3"></i></a>
+                        <a  href=https://www.linkedin.com/company/booksbeka-online-solutions-private-limited target="_blank"> <i class="fa fa-linkedin fa-2x mx-3"></i></a>
+                        <a  href=https://www.youtube.com/channel/UCv-OBAd6y1GeNK1Qx1aaJjg target="_blank"> <i class="fa fa-youtube fa-2x mx-3"></i></a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center " id="navlinks" >
+                <div>
+                  <p>
+                    `<a class="text-white"  href="/about">About</a>
+                      |
+                      <a class="text-white"  href="/contact">Contact</a>
+                      |
+                      <a class="text-white" href="/tos">Terms of service</a>
+                      |
+                      <a class="text-white" href="/privacy">Privacy Policy</a>
+                    </p>
+                </div>
+              </div>
+
+              <div class="col d-flex justify-content-center text-white ">
+                <p> © <a class="text-white"  href="https://vrook.co/"  target="_blank" > BOOKSBEKA </a>ONLINE SOLUTIONS PVT LTD. ALL RIGHTS RESERVED</p>
+              </div>
+            </div>
+        </footer>
+
         <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
