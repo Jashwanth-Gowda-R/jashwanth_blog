@@ -7,7 +7,7 @@ from . import forms
 
 # Create your views here.
 def articles(request):
-    articles = Articles.objects.all().order_by('date')
+    articles = Articles.objects.all().order_by('-date')
     return render(request, 'articles/articles.html', {'articles': articles})
 
 
