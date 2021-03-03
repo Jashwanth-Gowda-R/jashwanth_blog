@@ -22,29 +22,40 @@
               </button>
               <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                  <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
-                    <a class="nav-item nav-link" href="{% url 'team' %}">Vrook Team</a>
+                   <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                   <a class="nav-item nav-link" href="{% url 'team' %}">Vrook Team</a>
+                   <a class="nav-item nav-link" href="{% url 'articles:list' %}">Articles</a>
                   <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
                   <a class="nav-item nav-link" href="{% url 'contact' %}">Contact Us</a>
                 </div>
                 <!-- Navbar Right Side -->
                 <div class="navbar-nav">
-                  <a class="nav-item nav-link" href="#">Login</a>
-                  <a class="nav-item nav-link" href="#">Register</a>
-                    <ul>
                     {% if user.is_authenticated %}
-                        <li>
-                            <form class="logout link" action="{% url 'accounts:logout' %}" method="post">
+                      <a class="nav-item nav-link" >
+                          <form class="logout link" action="{% url 'accounts:logout' %}" method="post">
                                 {% csrf_token %}
                             <input type="submit" value="Log Out">
                             </form>
-                        </li>
-                        <li><a href="{% url 'articles:create' %}" class="highlight">Add Article</a> </li>
-                        {% else %}
-                            <li><a href="{% url 'accounts:login' %}">Login</a> </li>
-                            <li><a href="{% url 'accounts:signup' %}">SignUp</a> </li>
-                        {% endif %}
-                     </ul>
+                      </a>
+                      <a class="nav-item nav-link" href="{% url 'articles:create' %}">Add Article</a>
+                    {% else %}
+                      <a class="nav-item nav-link" href="{% url 'accounts:login' %}">Login</a>
+                      <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Register</a>
+                    {% endif %}
+<!--                    <ul>-->
+<!--                    {% if user.is_authenticated %}-->
+<!--                        <li>-->
+<!--                            <form class="logout link" action="{% url 'accounts:logout' %}" method="post">-->
+<!--                                {% csrf_token %}-->
+<!--                            <input type="submit" value="Log Out">-->
+<!--                            </form>-->
+<!--                        </li>-->
+<!--                        <li><a href="{% url 'articles:create' %}" class="highlight">Add Article</a> </li>-->
+<!--                        {% else %}-->
+<!--                            <li><a href="{% url 'accounts:login' %}">Login</a> </li>-->
+<!--                            <li><a href="{% url 'accounts:signup' %}">SignUp</a> </li>-->
+<!--                        {% endif %}-->
+<!--                     </ul>-->
                 </div>
               </div>
             </div>
@@ -53,22 +64,8 @@
 
         <main role="main" class="container" id="body">
           <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-10">
               {% block content %}{% endblock %}
-            </div>
-            <div class="col-md-4">
-              <div class="content-section">
-                <h3>Our Sidebar</h3>
-                <p class='text-muted'>
-                    You can put any information here you'd like.
-                  <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
-                  </ul>
-                </p>
-              </div>
             </div>
           </div>
         </main>
