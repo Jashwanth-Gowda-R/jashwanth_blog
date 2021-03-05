@@ -8,7 +8,7 @@
               <div class="media-body">
                 <div class="article-metadata">
                   <a class="mr-2" href="#">{{ article.author }}</a>
-                  <small class="text-muted">{{ article.date }}</small>
+                  <small class="text-muted">{{ article.date|date:"F d,Y" }}</small>
                 </div>
                 <h2><a class="article-title" href="{% url 'articles:details' slug=article.slug %}">{{ article.title  }}</a></h2>
                 <p class="article-content">{{ article.snippet|safe }}</p>
