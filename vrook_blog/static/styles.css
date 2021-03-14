@@ -453,3 +453,11 @@ input[type=text], select, textarea {
 		line-height: 25px;
 	}
 }
+
+.django-ckeditor-widget{
+    width:100%;
+    min-height:50%;
+}
+#cke_id_body{
+    width:100% !important;
+}
